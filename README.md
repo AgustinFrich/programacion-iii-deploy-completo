@@ -113,3 +113,134 @@ Y con toda esta vuelta logramos que...
 - El ambiente puede tener más variables, no solo porque cambian de amibente en ambiente, sinó variables que queramos cambiar cuando el deploy ya está hecho. 
 
 ## Despliegue BACK 
+
+1. Para el back tenemos que hacer un "Web Service"
+
+---
+<img width="417" height="479" alt="image" src="https://github.com/user-attachments/assets/16685063-a5ed-49a3-b146-f083876f4b65" />
+
+---
+
+2. Elegimos repositorio
+
+---
+<img width="1230" height="255" alt="image" src="https://github.com/user-attachments/assets/57f33413-2b9b-43a9-891f-ea9107ce6376" />
+
+---
+
+3. Lo mismo que con el front: no hace falta tocar nada, podemos cambiar el nombre o rama del github. El lenguaje es NODE.
+
+---
+<img width="1152" height="739" alt="image" src="https://github.com/user-attachments/assets/2e00bb3a-581d-468c-895d-d768bb882562" />
+
+---
+
+4. Hay dos formas de configurar el arranque:
+
+4.1 La forma más directa, configurar todo en render.
+- La carpeta root es donde está nuestro package.json
+- El build command en este caso es solamente ```npm install``` o ```npm i``` para avrebiar
+- El comando de arranque es ```node --env-file=.env index.js``` igual que como lo haríamos en local (sin el --watch ya que no hay cambios que observar)
+
+---
+<img width="1068" height="331" alt="image" src="https://github.com/user-attachments/assets/c495c462-864c-43eb-a5ea-f02bd4da9edc" />
+
+---
+
+4.2 La alternativa es en el comando de arranque, donde podríamos poner ```npm start``` que lo que hace es ejecutar el script start de nuestro package.json
+
+---
+<img width="986" height="126" alt="image" src="https://github.com/user-attachments/assets/267d291f-9c17-418e-a0cb-118e257c7ed3" />
+
+---
+
+Y luego configurar el script "start" en el package.json
+
+---
+<img width="694" height="171" alt="image" src="https://github.com/user-attachments/assets/a23ab073-ee81-4e82-a878-e52f4bbd8b61" />
+
+---
+
+El comando al final es el mismo, la única diferencia es que con la segunda opción se puede controlar mejor desde el package y no depender de cambiar la configuración de render.
+
+5. La opción gratis. En esta cursada no ponemos un peso.
+
+---
+<img width="1274" height="186" alt="image" src="https://github.com/user-attachments/assets/516b69e9-ecc8-4da0-9bed-8e659401619f" />
+
+---
+
+6. Variables de ambiente. Esto se hace en la partede avanzada -> secret file:
+
+---
+<img width="1050" height="382" alt="image" src="https://github.com/user-attachments/assets/30e0fcf5-9cd9-464d-949c-8c6e3a8a1bc6" />
+
+---
+<img width="1063" height="675" alt="image" src="https://github.com/user-attachments/assets/d9a570b3-1430-4a59-b361-4c0383ebc3be" />
+
+---
+
+Si falta alguna variable o no sabemos el valor final, lo podemos modificar después.
+
+7. Deploy!
+
+---
+<img width="266" height="138" alt="image" src="https://github.com/user-attachments/assets/b57bdfb5-6e67-4ea2-9531-ffb9c39f72e9" />
+
+---
+
+8. A diferencia de la subida estática que es solo subir archivos, esta vez hay que esperar a que se instalen todos los paquetes de node y levante el servidor, lo cuál puede llegar a tardar unos minutos (sobre todo la primera vez que no hay caché guardado para acelerar el proceso).
+
+---
+<img width="827" height="546" alt="image" src="https://github.com/user-attachments/assets/eaac4607-2462-4ea4-ae1c-ff3840e6abc7" />
+
+---
+
+## Notas backend
+
+- A partir de acá, solo nos queda configurar bien los ambientes para que tengan los valores reales.
+
+- Render permite la subida de archivos con multer pero los elimina cuando el deploy se da de baja.
+
+- El deploy se da de baja automáticamente si no se usa por un tiempo. Luego se vuelve a iniciar cuando recibe una nueva petición pero puede tartar un minuto en arrancar.
+
+# Cierre
+
+Vamos a configurar todo bien para que todo quede funcionando.
+
+1. Cambio la api_url de mi front, pusheo el nuevo archivo de ambiente y ya debería conectar.
+
+---
+<img width="775" height="260" alt="image" src="https://github.com/user-attachments/assets/e3d08ccf-3a72-4a71-b011-0e3c19889ca4" />
+
+---
+
+2. Cambio el .env desde render del back.
+
+---
+<img width="324" height="643" alt="image" src="https://github.com/user-attachments/assets/9c69f6fc-065e-4e48-809d-06ccb75fea6d" />
+
+---
+<img width="1884" height="370" alt="image" src="https://github.com/user-attachments/assets/a950a0cb-3e2a-4570-9b28-fb32d833e660" />
+
+---
+<img width="1114" height="544" alt="image" src="https://github.com/user-attachments/assets/bb976e2f-4fa1-4088-b636-4daeeffda5a5" />
+
+---
+
+<img width="301" height="146" alt="image" src="https://github.com/user-attachments/assets/bb8e1a45-7819-4be9-9216-11f3d151855e" />
+---
+
+3. Esperamos a que se hagan las builds y probamos...
+
+<img width="570" height="255" alt="image" src="https://github.com/user-attachments/assets/cc0ec70b-7f9d-4291-a3d1-7d71b83e4085" />
+
+URL FRONT: https://prog-iii-front.onrender.com/
+
+URL BACK: https://prog-iii-back.onrender.com/
+
+# Final
+
+Cualquier duda, consulta, opinión, corrección pueden aviar y se modifica o se agrega al readme. 
+Incluso pueden enviar un pull request con cambios sugeridos.
+Gracias y saludos!
