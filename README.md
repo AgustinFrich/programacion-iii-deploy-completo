@@ -2,7 +2,7 @@
 
 ## Estructura del proyecto
 
-Es la estructura más básica posible y se puede mejorar, por ejemplo, los archivos de ambiente del front se pueden mover a una carpeta.
+Es una estructura básica y se puede mejorar, por ejemplo, los archivos de ambiente del front se pueden mover a una carpeta.
 
 <img width="459" height="387" alt="Captura de pantalla 2025-11-09 162540" src="https://github.com/user-attachments/assets/3d499765-530b-4e79-82f3-cce2a9139f6e" />
 
